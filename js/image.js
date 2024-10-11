@@ -33,8 +33,10 @@ async function drawTexturesFromAtlas(xmlPath, imagePath, canvas) {
   // Créer le contexte du canvas
   const ctx = canvas.getContext("2d");
 
+  let i = 0;
   // Boucler sur chaque sous-image et les dessiner
   for (let subTexture of subTextures) {
+    i = i + 60;
     const name = subTexture.getAttribute("name");
     const x = parseInt(subTexture.getAttribute("x"));
     const y = parseInt(subTexture.getAttribute("y"));
@@ -58,7 +60,17 @@ async function drawTexturesFromAtlas(xmlPath, imagePath, canvas) {
     // );
     if (name.includes("arrow")) {
       // Dessiner cette sous-image qui correspond à une flèche
-      ctx.drawImage(image, x, y, width, height, frameX, frameY, width, height);
+      ctx.drawImage(
+        image,
+        x,
+        y,
+        width,
+        height,
+        frameX + i,
+        frameY,
+        width - 100,
+        height - 100
+      );
       console.log(
         `Dessin de la texture : ${name} aux coordonnées (${x}, ${y}) avec taille (${width}x${height})`
       );
