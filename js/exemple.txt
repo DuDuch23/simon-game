@@ -1,0 +1,20 @@
+code js pour lire toute les images
+    // if (name.includes("arrow")) {
+    //   // Dessiner cette sous-image qui correspond à une flèche
+    //   ctx.drawImage(
+    //     image,
+    //     x,
+    //     y,
+    //     width,
+    //     height,
+    //     frameX,
+    //     frameY,
+    //     width,
+    //     height
+    //   );
+    //   console.log(
+    //     `Dessin de la texture : ${name} aux coordonnées (${
+    //       frameX + i
+    //     }, ${frameY}) avec taille (${width}x${height})`
+    //   );
+    // }
