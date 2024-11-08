@@ -3,7 +3,7 @@ const xmlPath = "./asset/image/notes/default.xml";
 const imagePath = "./asset/image/notes/default.png";
 const canvas = document.getElementById("myCanvas");
 
-// on charge le fichier weml
+// on charge le fichier xeml
 async function loadXMLFile(xmlPath) {
   const response = await fetch(xmlPath);
   const xmlText = await response.text();
@@ -11,7 +11,7 @@ async function loadXMLFile(xmlPath) {
   return parser.parseFromString(xmlText, "application/xml");
 }
 
-//on charge l'imafe en png
+//on charge l'image en png
 function loadImage(imagePath) {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -50,15 +50,28 @@ async function drawTexturesFromAtlas(xmlPath, imagePath, canvas) {
     const frameY = subTexture.getAttribute("frameY")
       ? parseInt(subTexture.getAttribute("frameY"))
       : 0;
-
-    // Dessiner chaque sous-image sur le canvas
-    // ctx.drawImage(image, x, y, width, height, frameX, frameY, width, height);
-
-    // Ou afficher seulement la sous-image si besoin
-    // console.log(
-    //   `Dessin de la texture : ${name} aux coordonnées (${x}, ${y}) avec taille (${width}x${height})`
-    // );
-    if (name.includes("arrow")) {
+    // code de base
+    // if (name.includes("arrow")) {
+    //   // Dessiner cette sous-image qui correspond à une flèche
+    //   ctx.drawImage(
+    //     image,
+    //     x,
+    //     y,
+    //     width,
+    //     height,
+    //     frameX + i,
+    //     frameY,
+    //     width - 100,
+    //     height - 100
+    //   );
+    //   console.log(
+    //     `Dessin de la texture : ${name} aux coordonnées (${
+    //       frameX + i
+    //     }, ${frameY}) avec taille (${width}x${height})`
+    //   );
+    // }
+    // pour faire en sorte que les images soit bien placer
+    if (name == "arrowDOWN0000") {
       // Dessiner cette sous-image qui correspond à une flèche
       ctx.drawImage(
         image,
@@ -66,15 +79,142 @@ async function drawTexturesFromAtlas(xmlPath, imagePath, canvas) {
         y,
         width,
         height,
-        frameX + i,
+        120,
+        0,
+        width - 100,
+        height - 100
+      );
+      console.log(
+        `Dessin de la texture : ${name} aux coordonnées (${
+          frameX + i
+        }, ${frameY}) avec taille (${width}x${height})`
+      );
+    }
+    if (name == "arrowLEFT0000") {
+      // Dessiner cette sous-image qui correspond à une flèche
+      ctx.drawImage(
+        image,
+        x,
+        y,
+        width,
+        height,
+        60,
         frameY,
         width - 100,
         height - 100
       );
       console.log(
-        `Dessin de la texture : ${name} aux coordonnées (${x}, ${y}) avec taille (${width}x${height})`
+        `Dessin de la texture : ${name} aux coordonnées (${
+          frameX + i
+        }, ${frameY}) avec taille (${width}x${height})`
       );
     }
+    if (name == "arrowUP0000") {
+      // Dessiner cette sous-image qui correspond à une flèche
+      ctx.drawImage(
+        image,
+        x,
+        y,
+        width,
+        height,
+        180,
+        frameY,
+        width - 100,
+        height - 100
+      );
+      console.log(
+        `Dessin de la texture : ${name} aux coordonnées (${
+          frameX + i
+        }, ${frameY}) avec taille (${width}x${height})`
+      );
+    }
+    if (name == "arrowRIGHT0000") {
+      // Dessiner cette sous-image qui correspond à une flèche
+      ctx.drawImage(
+        image,
+        x,
+        y,
+        width,
+        height,
+        240,
+        frameY,
+        width - 100,
+        height - 100
+      );
+      console.log(
+        `Dessin de la texture : ${name} aux coordonnées (${
+          frameX + i
+        }, ${frameY}) avec taille (${width}x${height})`
+      );
+    }
+    document.addEventListener("keydown", (event) => {
+      if ((event.key === "d") | (event.key === "ArrowLeft")) {
+        if (name == "left press0000") {
+          // Dessiner cette sous-image qui correspond à une flèche
+          ctx.drawImage(
+            image,
+            x,
+            y,
+            width,
+            height,
+            62,
+            1.6,
+            width - 89,
+            height - 89
+          );
+          setInterval(console.log("it's works"), 1000);
+          ctx.clearRect(60, 0.2, width - 80, height - 80);
+        }
+      }
+      if ((event.key === "f") | (event.key === "ArrowDown")) {
+        if (name == "down press0000") {
+          // Dessiner cette sous-image qui correspond à une flèche
+          ctx.drawImage(
+            image,
+            x,
+            y,
+            width,
+            height,
+            122.5,
+            1.6,
+            width - 90,
+            height - 90
+          );
+        }
+      }
+      if ((event.key === "j") | (event.key === "ArrowUp")) {
+        if (name == "up press0000") {
+          // Dessiner cette sous-image qui correspond à une flèche
+          ctx.drawImage(
+            image,
+            x,
+            y,
+            width,
+            height,
+            181,
+            1.6,
+            width - 90,
+            height - 90
+          );
+        }
+      }
+      if ((event.key === "k") | (event.key === "ArrowRight")) {
+        if (name == "right press0000") {
+          // Dessiner cette sous-image qui correspond à une flèche
+          ctx.drawImage(
+            image,
+            x,
+            y,
+            width,
+            height,
+            243.3,
+            2.5,
+            width - 90,
+            height - 90
+          );
+        }
+      }
+    });
   }
 }
 
