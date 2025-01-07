@@ -1,6 +1,6 @@
 // import
-import { canvas } from "/asset/js/default-sitting.js";
-import { select } from "/asset/js/menue.js";
+import { canvas } from "/asset/js/script/default-sitting.js";
+import { select } from "./menue.js";
 
 // debut de la fonction
 start();

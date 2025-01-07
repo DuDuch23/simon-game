@@ -1,5 +1,5 @@
-import { sittingPage } from "/asset/js/sitting.js";
-import { drawTexturesFromAtlas } from "/asset/js/image.js";
+import { sittingPage } from "/asset/js/script/sitting.js";
+import { drawTexturesFromAtlas } from "/asset/js/script/image.js";
 const xmlPath = "/asset/img/default.xml";
 const imagePath = "/asset/img/default.png";
 
